@@ -303,7 +303,6 @@ $(document).ready(function(){
 });
 /*  */
 const BTNs = document.querySelectorAll('.btn-popup')
-console.log(BTNs);
 const popUpBlock = `
   <div class="pop-up">
     <i class="fa fa-close"></i>
@@ -321,25 +320,11 @@ function showPopup() {
   hidePopup()
 }//
 function hidePopup() {
-  document.querySelector('.fa-close').addEventListener('click', ()=>{
+  document.querySelector('.fa-close').addEventListener('click', () => {
     document.querySelector('.pop-up').remove()
   })
 } 
-/* 
-genric-btn circle
-call-btn
-primary-btn
-btn 
 
-<div class="pop-up">
-  <i class="fa fa-close"></i>
-  <h5>Для получения детальной информации обращайтесь по телефону или в одной из доступных Вам соц.сетей или месенджерах</h4>
-  <a href="tel:+380509351388"><i class="fa fa-phone"></i>+38(050)-935-13-88</a>
-  <a href="https://telegram.me/Track888"><i class="fa fa-telegram"></i>telegram</a>
-  <a href="https://api.whatsapp.com/send/?phone=380509351388"><i class="fa fa-whatsapp"></i>whatsapp</a>
-  <a href="https://www.facebook.com/autoexpert.best/"><i class="fa fa-facebook"></i>facebook</a>
-</div>
- */
 
 
 
