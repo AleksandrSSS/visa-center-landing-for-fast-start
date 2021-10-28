@@ -89,78 +89,64 @@ $(document).ready(function(){
     $("#mobile-nav, #mobile-nav-toggle").hide();
   }
 
-  // Smooth scroll for the menu and links with .scrollto classes
-  $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      if (target.length) {
-        var top_space = 0;
+    // Smooth scroll for the menu and links with .scrollto classes
+    $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function() {
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        if (target.length) {
+          var top_space = 0;
 
-        if ($('#header').length) {
-          top_space = $('#header').outerHeight();
+          if ($('#header').length) {
+            top_space = $('#header').outerHeight();
 
-          if( ! $('#header').hasClass('header-fixed') ) {
-            top_space = top_space;
+            if( ! $('#header').hasClass('header-fixed') ) {
+              top_space = top_space;
+            }
           }
-        }
 
-        $('html, body').animate({
-          scrollTop: target.offset().top - top_space
-        }, 1500, 'easeInOutExpo');
+          $('html, body').animate({
+            scrollTop: target.offset().top - top_space
+          }, 1500, 'easeInOutExpo');
 
-        if ($(this).parents('.nav-menu').length) {
-          $('.nav-menu .menu-active').removeClass('menu-active');
-          $(this).closest('li').addClass('menu-active');
-        }
+          if ($(this).parents('.nav-menu').length) {
+            $('.nav-menu .menu-active').removeClass('menu-active');
+            $(this).closest('li').addClass('menu-active');
+          }
 
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
-          $('#mobile-nav-toggle i').toggleClass('lnr-times lnr-bars');
-          $('#mobile-body-overly').fadeOut();
+          if ($('body').hasClass('mobile-nav-active')) {
+            $('body').removeClass('mobile-nav-active');
+            $('#mobile-nav-toggle i').toggleClass('lnr-times lnr-bars');
+            $('#mobile-body-overly').fadeOut();
+          }
+          return false;
         }
-        return false;
       }
-    }
-  });
+    });
 
 
     $(document).ready(function() {
-
-    $('html, body').hide();
-
-        if (window.location.hash) {
-
-        setTimeout(function() {
-
-        $('html, body').scrollTop(0).show();
-
-        $('html, body').animate({
-
-        scrollTop: $(window.location.hash).offset().top-129
-
-        }, 1000)
-
-        }, 0);
-
-        }
-
-        else {
-
-        $('html, body').show();
-
-        }
-
+        $('html, body').hide();
+            if (window.location.hash) {
+              setTimeout(function() {
+                $('html, body').scrollTop(0).show();
+                $('html, body').animate({
+                  scrollTop: $(window.location.hash).offset().top-129
+                }, 1000)
+              }, 0);
+            } else {
+                $('html, body').show();
+            }
     });
   
 
-  // Header scroll class
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('#header').addClass('header-scrolled');
-    } else {
-      $('#header').removeClass('header-scrolled');
-    }
-  });
+    // Header scroll class
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 100) {
+        $('#header').addClass('header-scrolled');
+      } else {
+        $('#header').removeClass('header-scrolled');
+      }
+    });
 
 
     $('.active-realated-carusel').owlCarousel({
@@ -265,7 +251,7 @@ $(document).ready(function(){
     });
 
 
-        $('.active-testimonials-slider').owlCarousel({
+    $('.active-testimonials-slider').owlCarousel({
         items:3,
         loop:true,
         margin: 30,
@@ -311,15 +297,58 @@ $(document).ready(function(){
 
         }
     });
+    $(document).ready(function() {
+        $('#mc_embed_signup').find('form').ajaxChimp();
+    });      
+});
+/*  */
+const BTNs = document.querySelectorAll('.btn-popup')
+console.log(BTNs);
+const popUpBlock = `
+  <div class="pop-up">
+    <i class="fa fa-close"></i>
+    <h5>Для получения детальной информации обращайтесь по телефону или в одной из доступных Вам соц.сетей или месенджерах</h4>
+    <a href="tel:+380509351388"><i class="fa fa-phone"></i>+38(050)-935-13-88</a>
+    <a href="https://telegram.me/Track888"><i class="fa fa-telegram"></i>telegram</a>
+    <a href="https://api.whatsapp.com/send/?phone=380509351388"><i class="fa fa-whatsapp"></i>whatsapp</a>
+    <a href="https://www.facebook.com/autoexpert.best/"><i class="fa fa-facebook"></i>facebook</a>
+  </div> `
+BTNs.forEach(el => {
+  el.addEventListener('click',showPopup)
+})
+function showPopup() {
+  document.querySelector('body').insertAdjacentHTML('beforeEnd', popUpBlock)
+  hidePopup()
+}//
+function hidePopup() {
+  document.querySelector('.fa-close').addEventListener('click', ()=>{
+    document.querySelector('.pop-up').remove()
+  })
+} 
+/* 
+genric-btn circle
+call-btn
+primary-btn
+btn 
+
+<div class="pop-up">
+  <i class="fa fa-close"></i>
+  <h5>Для получения детальной информации обращайтесь по телефону или в одной из доступных Вам соц.сетей или месенджерах</h4>
+  <a href="tel:+380509351388"><i class="fa fa-phone"></i>+38(050)-935-13-88</a>
+  <a href="https://telegram.me/Track888"><i class="fa fa-telegram"></i>telegram</a>
+  <a href="https://api.whatsapp.com/send/?phone=380509351388"><i class="fa fa-whatsapp"></i>whatsapp</a>
+  <a href="https://www.facebook.com/autoexpert.best/"><i class="fa fa-facebook"></i>facebook</a>
+</div>
+ */
 
 
 
-
+/*
     //  Start Google map 
 
             // When the window has finished loading create our google map below
 
-/*     if(document.getElementById("map")){
+if(document.getElementById("map")){
       google.maps.event.addDomListener(window, 'load', init);
       function init() {
           // Basic options for a simple Google Map
@@ -348,15 +377,3 @@ $(document).ready(function(){
     }
  */
 
-        $(document).ready(function() {
-            $('#mc_embed_signup').find('form').ajaxChimp();
-        });      
-
-
-
-
-
-
-
-
- });

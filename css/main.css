@@ -1901,6 +1901,9 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: -21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.3);
 }
 
+.header-top {
+  flex-wrap: nowrap;
+}
 .header-top span {
   color: black;
   font-weight: 500;
@@ -1939,10 +1942,15 @@ h1, h2, h3, h4, h5, h6 {
 .header-top .menu-top-right span {
   background-color: #f6214b;
   color: #fff;
-  padding: 33px;
+  padding: 30px;
   font-size: 18px;
   font-weight: 700;
   margin-left: 10px;
+}
+@media (max-width: 1024px) {
+  .header-top .menu-top-right span {
+    padding: 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3614,4 +3622,55 @@ body.mobile-nav-active #mobile-nav-toggle {
     min-height: 100px;
     font-size: 16px;
   }
+}
+.pop-up {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  padding: 20px;
+  width: 80vw;
+  height: 80vh;
+  left: 50%;
+  top: 80px;
+  transform: translateX(-50%);
+  background-color: rgb(45, 47, 49);
+  z-index: 10;
+}
+.pop-up > h5 {
+  color: #bfd5e7;
+  margin-bottom: 30px;
+  line-height: 10px;
+}
+.pop-up > a {
+  display: inline-flex;
+  align-items: center;
+  color: #bfd5e7;
+  
+}
+.pop-up > a:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+.pop-up > a > i {
+  font-size: 34px;
+  width: 34px;
+  height: 34px;
+  margin-right: 20px;
+}
+.fa-phone {
+  color: #d5d5d5;
+}
+.fa-telegram {
+  color: #4cd3e3;
+}
+.fa-facebook {
+  color: #38a4ff;
+}
+.fa-whatsapp {
+  color: rgb(0, 189, 117);
+}
+.fa-close {
+  text-align: right;
+  margin-bottom: 20px;
+  color: tomato;
+  font-size: 20px;
 }
