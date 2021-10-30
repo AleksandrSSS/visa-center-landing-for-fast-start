@@ -3631,7 +3631,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   flex-direction: column;
   position: fixed;
   padding: 20px;
-  /* width: 80vw; */
+  width: 95vw;
   height: 100vh;
   left: 50%;
   top: 0;
@@ -3643,7 +3643,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 @media (min-width: 768px) {
   .pop-up {
     top: 130px;
-    /* width: 50vw; */
+    width: 50vw;
     height: inherit;
   }
 }
@@ -3687,3 +3687,5 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 20px;
   cursor: pointer;
 }
+/*  */
+
